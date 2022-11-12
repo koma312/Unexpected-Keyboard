@@ -19,6 +19,7 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
+import android.widget.Toast;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -221,6 +222,8 @@ public class Keyboard2 extends InputMethodService
       Log.d(TAG, "extras: "+info.extras.toString());
     Log.d(TAG, "swapEnterActionKey: "+_config.swapEnterActionKey);
     Log.d(TAG, "actionLabel: "+_config.actionLabel);
+    Log.d(TAG, _config.swipe_dist_debug);
+    Toast.makeText(this, _config.swipe_dist_debug, Toast.LENGTH_LONG).show();
   }
 
   private int chooseLayout(EditorInfo info)

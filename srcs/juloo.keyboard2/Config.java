@@ -28,6 +28,7 @@ final class Config
   public int programming_layout; // Or '-1' for none
   public boolean show_numpad = false;
   public float swipe_dist_px;
+  public String swipe_dist_debug;
   public boolean vibrateEnabled;
   public long longPressTimeout;
   public long longPressInterval;
@@ -123,7 +124,8 @@ final class Config
     // per inch of the screen", which isn't affected by the scaling settings.
     // Take the mean of both dimensions as an approximation of the diagonal.
     float physical_scaling = (dm.widthPixels + dm.heightPixels) / (dm.xdpi + dm.ydpi);
-    swipe_dist_px = Float.valueOf(_prefs.getString("swipe_dist", "15")) * physical_scaling;;
+    swipe_dist_px = Float.valueOf(_prefs.getString("swipe_dist", "15")) * physical_scaling;
+    swipe_dist_debug = String.format("%.1fpx %.1f, %.1f * %.1f", swipe_dist_px, physical_scaling, dm.xdpi, dm.ydpi);
     vibrateEnabled = _prefs.getBoolean("vibrate_enabled", vibrateEnabled);
     longPressTimeout = _prefs.getInt("longpress_timeout", (int)longPressTimeout);
     longPressInterval = _prefs.getInt("longpress_interval", (int)longPressInterval);
